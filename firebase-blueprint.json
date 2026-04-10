@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "displayName": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["displayName", "email", "createdAt"]
+    },
+    "SavedArticle": {
+      "title": "SavedArticle",
+      "description": "Article saved by a user",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "summary": { "type": "string" },
+        "author": { "type": "string" },
+        "readTime": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "savedAt": { "type": "string", "format": "date-time" },
+        "articleUrl": { "type": "string" }
+      },
+      "required": ["title", "category", "savedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{uid}": {
+      "schema": "User",
+      "description": "User profile documents"
+    },
+    "/users/{uid}/savedArticles/{articleId}": {
+      "schema": "SavedArticle",
+      "description": "Articles saved by a specific user"
+    }
+  }
+}

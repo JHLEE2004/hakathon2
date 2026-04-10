@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #ffffff;
+  --color-on-surface: #1a1c1e;
+  --color-surface-container-low: #f0f3f8;
+  --color-surface-container-high: #e1e2e8;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-highest: #d9dae0;
+  --color-outline: #74777f;
+  --color-primary: #D60000;
+  --color-secondary: #44636e;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #410002;
+
+  --color-surface-dark: #1a1c1e;
+  --color-on-surface-dark: #e2e2e6;
+  --color-surface-container-low-dark: #202124;
+  --color-surface-container-high-dark: #2d2e31;
+  --color-surface-container-lowest-dark: #000000;
+  --color-surface-container-highest-dark: #333438;
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  display: flex;
+  width: max-content;
+  animation: ticker 40s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
